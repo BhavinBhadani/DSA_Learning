@@ -11,7 +11,7 @@ Return the lowercase version of the given character array.
 
 
 Problem Constraints
-1 <= |A| <= 105
+1 <= |A| <= 10^5
 
 
 Input Format
