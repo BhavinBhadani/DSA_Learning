@@ -6,7 +6,7 @@ Given a string A, you are asked to reverse the string and return the reversed st
 
 
 Problem Constraints
-1 <= |A| <= 105
+1 <= |A| <= 10^5
 String A consist only of lowercase characters.
 
 
