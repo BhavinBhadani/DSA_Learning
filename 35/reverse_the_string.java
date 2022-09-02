@@ -13,7 +13,7 @@ NOTE:
 
 
 Problem Constraints
-1 <= N <= 3 * 105
+1 <= N <= 3 * 10^5
 
 
 Input Format
