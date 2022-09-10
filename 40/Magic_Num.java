@@ -45,3 +45,20 @@ Explanation 2:
  Sum of digits of (13) = 4
  Single digit is not 1, so it's not a magic number. Return 0.
 */
+
+
+   public int solve(int A) {
+        if(A==1)
+            return 1;
+
+        if(A<10) 
+            return 0;
+
+        int res = 0;
+        while(A != 0) {
+            res += A % 10;
+            A /= 10;
+        }
+
+        return solve(res);
+    }
