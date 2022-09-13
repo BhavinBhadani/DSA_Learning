@@ -8,9 +8,9 @@ Note: The remainders on division cannot be negative. In other words, make sure t
 
 
 Problem Constraints
--109 <= A <= 109
-0 <= B <= 109
-1 <= C <= 109
+-109 <= A <= 10^9
+0 <= B <= 10^9
+1 <= C <= 10^9
 
 
 Input Format
@@ -42,4 +42,27 @@ Example Explanation
             x = (x*x)%C;  
         }
         return (int)((C + res)%C);
+    }
+
+
+//---- Another Approach ---
+    public int pow(int A, int B, int C) {
+        if(A<0 && B==1) 
+            return A+C;
+
+        if(A==0) 
+            return 0;
+
+        if(B==0) 
+            return 1;
+        
+        long e = pow(A, B>>1, C) % C; // pow(A, B/2, C) % C;
+        long f = ((e % C) * (e % C)) % C;
+
+        if ((B & 1) == 0) { // (B % 2 == 0) 
+            return (int)f;
+        } else {
+            return (int)(((f % C) * (A % C)) % C); 
+        }
+
     }
