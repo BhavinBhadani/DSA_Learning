@@ -55,6 +55,7 @@ public class Solution {
         }
 
         for(int i=0; i<n; i++) {
+            // if second largest is not equal to largest then this if block is not neccessary
             if(largest == A.get(i)) {
                 largestCount++;
                 if(largestCount > 1) {
@@ -69,3 +70,27 @@ public class Solution {
         return second;
     }
 }
+
+// --- Better Approach ----
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+        int n = A.size();
+        if(n<2)
+            return -1;
+
+        int largest = Integer.MIN_VALUE, second = -1, largestCount = 0;
+        for(int i=0; i<n; i++) {
+            // if second largest is not equal to largest then we can have only great than(>) condition instead of great or equal to(>=)
+            if(A.get(i) >= largest) { 
+                second = largest;
+                largest = A.get(i);
+            }
+            else if(A.get(i) > second && A.get(i) != largest) {
+                second = A.get(i);
+            }
+        }
+
+        return second;
+    }
+}
+
