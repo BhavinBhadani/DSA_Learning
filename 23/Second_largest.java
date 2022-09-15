@@ -78,7 +78,7 @@ public class Solution {
         if(n<2)
             return -1;
 
-        int largest = Integer.MIN_VALUE, second = -1, largestCount = 0;
+        int largest = Integer.MIN_VALUE, second = -1;
         for(int i=0; i<n; i++) {
             // if second largest is not equal to largest then we can have only great than(>) condition instead of great or equal to(>=)
             if(A.get(i) >= largest) { 
