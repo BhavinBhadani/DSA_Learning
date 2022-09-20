@@ -27,7 +27,7 @@ Output 2:
 
 */
 
-
+// --- Approach 1 (With prefix and suffix array) ----
 public class Solution {
     public static ArrayList<Integer> solve(ArrayList<Integer> A) {
         int n = A.size();
@@ -58,4 +58,23 @@ public class Solution {
         return arr;
     }
 
+}
+
+// --- Approach 2 ---
+public class Solution {
+    public static ArrayList<Integer> solve(ArrayList<Integer> A) {
+        int n = A.size();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        
+        int product = 1;
+        for(int i=0; i<n; i++) {
+            product *= A.get(i);
+        }
+
+        for(int i=0; i<n; i++) {
+            arr.add(product/A.get(i));
+        }
+        
+        return arr;
+    }
 }
