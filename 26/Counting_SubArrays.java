@@ -67,3 +67,29 @@ public class Solution {
         return cnt;
     }
 }
+
+//--- Using prefix array ---
+public class Solution {
+    public int solve(ArrayList<Integer> A, int B) {
+        int n = A.size(), cnt = 0;
+
+        int[] prefixArray = new int[n+1];
+        prefixArray[0] = 0;
+        for(int i=1; i<=n; i++) {
+            prefixArray[i] = prefixArray[i-1] + A.get(i-1);  
+        }
+
+        for(int i=0; i<n; i++) {
+            if(A.get(i) >= B) 
+                continue;
+
+            for(int j=i+1; j<=n; j++) {
+                if((prefixArray[j] - prefixArray[i]) < B) {
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
+}
+
