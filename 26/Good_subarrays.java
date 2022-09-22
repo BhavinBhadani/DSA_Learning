@@ -7,9 +7,9 @@ Given an array of integers A, a subarray of an array is said to be good if it fu
 Your task is to find the count of good subarrays in A.
 
 Problem Constraints
-1 <= len(A) <= 103
-1 <= A[i] <= 103
-1 <= B <= 107
+1 <= len(A) <= 10^3
+1 <= A[i] <= 10^3
+1 <= B <= 10^7
 
 Input Format
 The first argument given is the integer array A.
