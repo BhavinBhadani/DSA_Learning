@@ -45,23 +45,22 @@ Explanation 2:
 
 */
 
-//--- Brute Force Approach ---
+//--- Better Approach ---
 public class Solution {
     public int solve(ArrayList<Integer> A, int B) {
-        int n = A.size(), cnt = 0;
+        int n = A.size(), cnt = 0, sum = 0;
         for(int i=0; i<n; i++) {
             if(A.get(i) >= B) 
                 continue;
 
+            sum = 0;                    
             for(int j=i; j<n; j++) {
-                int sum = 0;
-
-                for(int k=i; k<=j; k++) {
-                    sum += A.get(k);
-                }
-
-                if(sum<B) 
+                if (sum + A.get(j) < B) {
+                    sum += A.get(j);
                     cnt++;
+                } else {
+                    break;
+                }
             }
         }
         return cnt;
@@ -93,3 +92,6 @@ public class Solution {
     }
 }
 
+
+
+// Another better approach is sliding window approach with 2 pointers mentioned in https://www.geeksforgeeks.org/number-subarrays-sum-less-k/
