@@ -56,3 +56,28 @@ public class Solution {
         return res;
     }
 }
+
+//--- Better Approach ---
+public class Solution {
+    public ArrayList<Integer> solve(int A, ArrayList<ArrayList<Integer>> B) {
+        ArrayList<Integer> res = new ArrayList<Integer>(Collections.nCopies(A, 0));
+        int Q = B.size();
+        for(int i=0; i<Q; i++) {
+            int si = B.get(i).get(0) - 1;
+            int ei = B.get(i).get(1);
+            int num = B.get(i).get(2);
+
+            res.set(si, res.get(si) + num);
+
+            if(ei<A) {
+                res.set(ei, res.get(ei) - num);
+            }
+        }
+
+        for(int i=1; i<A; i++) {
+            res.set(i, res.get(i-1) + res.get(i));
+        }
+        return res;
+    }
+}
+
