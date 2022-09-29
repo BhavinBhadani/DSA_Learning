@@ -46,25 +46,15 @@ public class Solution {
         int k = 2*B+1, n = A.size();
 
         for(int i=0; i<=n-k; i++) {
-            int start = A.get(i);
+            int curr = -1;
             boolean flag = true;
             for(int j=i+1; j<i+k; j++) {
-                if(start == 0) {
-                    if(A.get(j)==0) {
-                        flag = false;
-                        break;
-                    }
+                 if(A.get(j)==curr) {
+                     flag = false;
+                     break;
+                 }
 
-                    start = 1;
-                }
-                else if(start == 1) {
-                    if(A.get(j)==1) {
-                        flag = false;
-                        break;
-                    }
-
-                    start = 0;
-                }
+                 curr = A.get(j);
             }
 
             if(flag)
