@@ -39,3 +39,22 @@ public class Solution {
         return res;
     }
 }
+
+//--- Another Approach ---
+public class Solution {
+    public int singleNumber(final int[] A) {
+        int ans = 0;
+        for(int i=0; i<=30; i++) {
+            int cnt = 0;
+            for(int j=0; j<A.length; j++) {
+                if ((A[j] & (1 << i)) != 0)
+                    cnt++;
+            }
+
+            if(cnt%2==1)
+                ans = ans + (1<<i);
+        }
+        return ans;
+    }
+}
+
